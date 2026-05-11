@@ -1,0 +1,38 @@
+# Paths relative to the ai_finance_assistant package directory unless absolute.
+paths:
+  articles_dir: "data/articles"
+  faiss_index_dir: "data/index"
+  kb_meta_file: "data/index/metadata.json"
+
+llm:
+  provider: openai          # openai | google_genai | anthropic
+  model: gpt-4o-mini
+  temperature: 0.25
+  timeout_seconds: 60
+
+embeddings:
+  provider: huggingface     # huggingface (local MiniLM)
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+
+rag:
+  chunk_size: 900
+  chunk_overlap: 120
+  top_k_default: 4
+  # categories used in frontmatter filters
+  categories:
+    - investing_basics
+    - portfolio
+    - markets
+    - retirement
+    - taxes
+    - behavioral
+
+market:
+  quote_cache_ttl_seconds: 90
+  history_days_default: 30
+  alpha_vantage_base_url: "https://www.alphavantage.co/query"
+
+app:
+  educational_disclaimer: >
+    Educational information only—not personalized investment, tax, or legal advice.
+    Discuss material decisions with a qualified professional.
